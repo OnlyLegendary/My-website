@@ -3,120 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seth Soileau | Portfolio</title>
+    <title>Seth Soileau | Engineering & Visuals</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <div class="logo-area">
-                <h1>SETH SOILEAU</h1>
-                <div class="status-bar">
-                    <span class="status-dot"></span> SYSTEM_READY
-                </div>
+    <div class="cursor"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <div class="brand">
+                <span class="name">SETH SOILEAU</span>
+                <span class="vsn">v2.0.26</span>
             </div>
-            
-            <nav class="tabs">
-                <button class="tab-link active" onclick="openSection(event, 'electronics')">
-                    <i class="fas fa-microchip"></i> Electronics
-                </button>
-                <button class="tab-link" onclick="openSection(event, 'photography')">
-                    <i class="fas fa-camera"></i> Photography
-                </button>
-                <button class="tab-link" onclick="openSection(event, 'about')">
-                    <i class="fas fa-user"></i> About
-                </button>
-            </nav>
+            <div class="nav-controls">
+                <button class="nav-btn active" onclick="showTab('electronics', event)">Hardware</button>
+                <button class="nav-btn" onclick="showTab('photography', event)">Photography</button>
+                <button class="nav-btn" onclick="showTab('about', event)">Info</button>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="container">
-        <section id="electronics" class="tab-content active">
-            <div class="grid">
-                <div class="project-card">
-                    <div class="project-preview">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Custom Circuit Board</h3>
-                        <p>Project details and schematic descriptions go here. Focus on the hardware specs.</p>
-                        <div class="tech-stack">
-                            <span>PCB Design</span>
-                            <span>Soldering</span>
-                        </div>
+    <main class="viewport">
+        <section id="electronics" class="tab-pane active">
+            <div class="section-header">
+                <h2><i class="fas fa-microchip"></i> Hardware Lab</h2>
+                <p>Schematics, PCB designs, and embedded systems.</p>
+            </div>
+            <div class="project-grid">
+                <div class="circuit-card">
+                    <div class="card-viz"><i class="fas fa-wave-square"></i></div>
+                    <div class="card-body">
+                        <h3>Oscilloscope Interface</h3>
+                        <p>Custom signal processing unit for legacy hardware monitoring.</p>
+                        <div class="badges"><span>KiCad</span><span>C++</span></div>
                     </div>
                 </div>
                 </div>
         </section>
 
-        <section id="photography" class="tab-content">
-            <div class="gallery-info">
-                <h2>DIR: /IMAGES/NO_MEMORY/</h2>
-                <p>Authentic retro aesthetic. Click to expand.</p>
+        <section id="photography" class="tab-pane">
+            <div class="section-header">
+                <h2><i class="fas fa-folder-open"></i> NO_MEMORY_ARCHIVE</h2>
+                <p>Unprocessed captures. 4:3 Ratio. Vintage Sensors.</p>
             </div>
-            
-            <div class="photo-grid">
-                <div class="photo-card" onclick="openLightbox('images/P1020835.JPG')">
+            <div class="photo-matrix">
+                <div class="photo-cell" onclick="openFull('images/P1020835.JPG')">
                     <img src="images/P1020835.JPG" alt="P1020835">
-                    <div class="photo-meta">P1020835.JPG</div>
+                    <div class="overlay"><span>OPEN_FILE</span></div>
                 </div>
-                <div class="photo-card" onclick="openLightbox('images/P1020864.JPG')">
+                <div class="photo-cell" onclick="openFull('images/P1020864.JPG')">
                     <img src="images/P1020864.JPG" alt="P1020864">
-                    <div class="photo-meta">P1020864.JPG</div>
+                    <div class="overlay"><span>OPEN_FILE</span></div>
                 </div>
-                <div class="photo-card" onclick="openLightbox('images/P1020871.JPG')">
+                <div class="photo-cell" onclick="openFull('images/P1020871.JPG')">
                     <img src="images/P1020871.JPG" alt="P1020871">
-                    <div class="photo-meta">P1020871.JPG</div>
+                    <div class="overlay"><span>OPEN_FILE</span></div>
                 </div>
-                <div class="photo-card" onclick="openLightbox('images/P1020873.JPG')">
+                <div class="photo-cell" onclick="openFull('images/P1020873.JPG')">
                     <img src="images/P1020873.JPG" alt="P1020873">
-                    <div class="photo-meta">P1020873.JPG</div>
+                    <div class="overlay"><span>OPEN_FILE</span></div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="tab-content">
-            <div class="about-box">
-                <h2>Seth Soileau</h2>
-                <p>I am a 16-year-old creator specializing in electronics engineering and retro-style photography. I enjoy working at the intersection of old-school visual styles and modern hardware design.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i> Contact</a>
+        <section id="about" class="tab-pane">
+            <div class="bio-container">
+                <div class="bio-text">
+                    <h2>Seth Soileau</h2>
+                    <p class="lead">16-year-old engineer and visual archivist.</p>
+                    <p>Building hardware that lasts and capturing moments that don't. My work focuses on the intersection of modern embedded systems and the "No Memory" retro aesthetic.</p>
+                    <a href="mailto:seth@example.com" class="contact-trigger">Start Correspondence →</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-btn">&times;</span>
-        <img id="lightbox-img" src="" alt="Zoomed view">
+    <div id="viewer" class="viewer" onclick="this.style.display='none'">
+        <div class="viewer-content">
+            <img id="full-img" src="" alt="Full Resolution">
+            <p id="img-label" class="img-label"></p>
+        </div>
     </div>
 
     <script>
-        function openSection(evt, sectionName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-link");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(sectionName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+        function showTab(id, e) {
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            e.currentTarget.classList.add('active');
+            window.scrollTo(0,0);
         }
 
-        function openLightbox(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').style.display = 'flex';
+        function openFull(url) {
+            const name = url.split('/').pop();
+            document.getElementById('full-img').src = url;
+            document.getElementById('img-label').innerText = `SOURCE: ${name}`;
+            document.getElementById('viewer').style.display = 'flex';
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
+        // Custom Cursor Movement
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
     </script>
 </body>
 </html>
