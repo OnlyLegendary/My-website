@@ -136,3 +136,39 @@ body {
 .viewer-content { width: 90%; height: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 #full-img { max-height: 80vh; max-width: 100%; object-fit: contain; border: 1px solid var(--accent); }
 .img-label { color: var(--accent); margin-top: 10px; font-size: 0.7rem; }
+
+/* =========================
+   Mobile Adaptation
+   ========================= */
+@media (max-width: 768px) {
+
+    /* Disable custom cursor on touch devices */
+    * { cursor: auto; }
+    .cursor { display: none; }
+
+    /* Navigation */
+    .nav-content { flex-direction: column; gap: 12px; }
+    .nav-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+    .nav-btn { padding: 10px 14px; font-size: 0.75rem; }
+
+    /* Main spacing */
+    .viewport { margin-top: 140px; padding: 16px; }
+
+    /* Section headers */
+    .section-header h2 { font-size: 1rem; }
+    .section-header p { font-size: 0.85rem; }
+
+    /* Cards */
+    .circuit-card { padding: 22px; }
+
+    /* Photography grid */
+    .photo-matrix { grid-template-columns: 1fr; }
+    .photo-cell { aspect-ratio: 3 / 2; }
+
+    /* Bio */
+    .bio-card { padding: 24px; font-size: 0.9rem; }
+
+    /* Viewer */
+    #full-img { max-height: 70vh; }
+    .img-label { font-size: 0.65rem; }
+}
